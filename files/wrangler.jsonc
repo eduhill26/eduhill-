@@ -1,0 +1,25 @@
+{
+  // Name of your Worker (URL: https://eduhill.eduhill26.workers.dev)
+  "name": "eduhill",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-03-07",
+  "compatibility_flags": ["nodejs_compat"],
+
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+
+  // KV namespace "eduhill-data" (already created for you) — this is
+  // where your notes and quiz questions will be permanently stored.
+  "kv_namespaces": [
+    {
+      "binding": "EDUHILL_KV",
+      "id": "5d85d6d185f44902b4fa9ab228791a2e"
+    }
+  ]
+
+  // Secrets (never put these here — set them with `wrangler secret put`):
+  //   API_KEY         -> required, protects your notes/questions
+  //   ALLOWED_ORIGIN  -> optional, e.g. https://eduhill26.github.io
+}
