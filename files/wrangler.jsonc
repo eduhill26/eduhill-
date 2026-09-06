@@ -1,0 +1,27 @@
+{
+  // Name of your Worker (will become part of the URL:
+  // https://eduhill-worker.<your-subdomain>.workers.dev)
+  "name": "eduhill-worker",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-03-07",
+  "compatibility_flags": ["nodejs_compat"],
+
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+
+  // Bind the KV namespace you create with:
+  //   npx wrangler kv namespace create EDUHILL_KV
+  // Then paste the returned "id" below.
+  "kv_namespaces": [
+    {
+      "binding": "EDUHILL_KV",
+      "id": "PASTE_YOUR_KV_NAMESPACE_ID_HERE"
+    }
+  ]
+
+  // Secrets (never put these here — set them with `wrangler secret put`):
+  //   API_KEY         -> required, protects your notes/questions
+  //   ALLOWED_ORIGIN  -> optional, e.g. https://eduhill26.github.io
+}
